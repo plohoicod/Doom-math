@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Doom math</string>
+    <string name="app_play">Play</string>
+    <string name="app_levels">Levels</string>
+    <string name="app_options">Options</string>
+    <string name="app_read_this">Read This!</string>
+    <string name="app_quit">Quit Game</string>
 </resources>
