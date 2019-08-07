@@ -17,15 +17,16 @@
         android:layout_marginEnd="162dp"
         android:layout_marginBottom="12dp"
         android:text="@string/app_play"
+        android:textAllCaps="false"
         android:fontFamily="@font/doom"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/levels"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/levels"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="162dp"
@@ -33,6 +34,7 @@
         android:layout_marginEnd="162dp"
         android:layout_marginBottom="12dp"
         android:text="@string/app_levels"
+        android:textAllCaps="false"
         android:fontFamily="@font/doom"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/button3"
@@ -49,12 +51,13 @@
         android:layout_marginEnd="162dp"
         android:layout_marginBottom="12dp"
         android:text="@string/app_options"
+        android:textAllCaps="false"
         android:fontFamily="@font/doom"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/levels" />
 
     <Button
         android:id="@+id/button4"
@@ -65,6 +68,7 @@
         android:layout_marginEnd="157dp"
         android:layout_marginBottom="12dp"
         android:text="@string/app_read_this"
+        android:textAllCaps="false"
         android:fontFamily="@font/doom"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/quit"
@@ -81,6 +85,7 @@
         android:layout_marginEnd="157dp"
         android:layout_marginBottom="218dp"
         android:text="@string/app_quit"
+        android:textAllCaps="false"
         android:fontFamily="@font/doom"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

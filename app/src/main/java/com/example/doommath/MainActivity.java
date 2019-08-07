@@ -4,13 +4,14 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private Button quitBtn, playBtn;
+    private Button quitBtn, playBtn, levelsBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     public void addListenerOnButton(){
         quitBtn =(Button)findViewById(R.id.quit);
         playBtn = (Button)findViewById(R.id.play);
+        levelsBtn = (Button)findViewById(R.id.levels);
 
         playBtn.setOnClickListener(
                 new View.OnClickListener() {
@@ -29,6 +31,21 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(
                            MainActivity.this, "Game", Toast.LENGTH_LONG
                         ).show();
+                    }
+                }
+        );
+
+        levelsBtn.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        try {
+                            Intent intent = new Intent(MainActivity.this, GameLevels.class);
+                            startActivity(intent);
+                            finish();
+                        } catch (Exception e){
+
+                        }
                     }
                 }
         );
