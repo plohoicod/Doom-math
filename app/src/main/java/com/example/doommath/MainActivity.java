@@ -77,4 +77,26 @@ public class MainActivity extends AppCompatActivity {
         );
 
     }
+
+    @Override
+    public void onBackPressed(){
+        AlertDialog.Builder quit_alert = new AlertDialog.Builder(MainActivity.this);
+        quit_alert.setMessage("I WOULDN'T LEAVE IT IF I WERE YOU.\n(PRESS Y TO QUIT)")
+                .setCancelable(false)
+                .setPositiveButton("Y", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogQuit, int i) {
+                        finish();
+                    }
+                })
+                .setNegativeButton("N", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogQuit, int i) {
+                        dialogQuit.cancel();
+                    }
+                });
+        AlertDialog alertQuit = quit_alert.create();
+        //alertQuit.setTitle("?");
+        alertQuit.show();
+    }
 }
