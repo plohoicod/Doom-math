@@ -41,11 +41,20 @@
             android:orientation="vertical"
             android:padding="10dp">
 
+            <TextView
+                android:id="@+id/textView"
+                android:gravity="bottom|center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="27dp"
+                android:text="Answer" />
+
             <LinearLayout
                 android:id="@+id/linecontrol"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="bottom|center"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -78,7 +87,7 @@
                     android:layout_height="50dp"
                     android:background="@drawable/btn_levels"
                     android:gravity="center"
-                    android:text="Enter"
+                    android:text="ENTER"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -216,7 +225,7 @@
                     android:layout_height="50dp"
                     android:background="@drawable/btn_levels"
                     android:gravity="center"
-                    android:text="10"
+                    android:text="0"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     android:textStyle="bold" />
