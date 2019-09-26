@@ -3,14 +3,20 @@ package com.example.doommath;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    Dialog MyDialog;
+    TextView yes;
+    TextView no;
     private Button quitBtn, playBtn, levelsBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,49 +60,45 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        AlertDialog.Builder quit_alert = new AlertDialog.Builder(MainActivity.this);
-                        quit_alert.setMessage("I WOULDN'T LEAVE IT IF I WERE YOU.\n(PRESS Y TO QUIT)")
-                                .setCancelable(false)
-                                .setPositiveButton("Y", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogQuit, int i) {
-                                        finish();
-                                    }
-                                })
-                                .setNegativeButton("N", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogQuit, int i) {
-                                        dialogQuit.cancel();
-                                    }
-                                });
-                        AlertDialog alertQuit = quit_alert.create();
-                        //alertQuit.setTitle("?");
-                        alertQuit.show();
+                        MyCustomAlertDialog();
                     }
                 }
         );
 
     }
 
+
+    public void MyCustomAlertDialog(){
+        MyDialog = new Dialog(MainActivity.this);
+        MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        MyDialog.setContentView(R.layout.customexitdialog);
+        MyDialog.setTitle("My Custom Dialog");
+        TextView message = MyDialog.findViewById(R.id.text1);
+        message.setText("I WOULDN'T LEAVE IT IF I WERE YOU.\n(PRESS Y TO QUIT)");
+        yes = (TextView)MyDialog.findViewById(R.id.yes);
+        no = (TextView)MyDialog.findViewById(R.id.no);
+
+        yes.setEnabled(true);
+        no.setEnabled(true);
+
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyDialog.cancel();
+            }
+        });
+
+        MyDialog.show();
+    }
+
     @Override
     public void onBackPressed(){
-        AlertDialog.Builder quit_alert = new AlertDialog.Builder(MainActivity.this);
-        quit_alert.setMessage("I WOULDN'T LEAVE IT IF I WERE YOU.\n(PRESS Y TO QUIT)")
-                .setCancelable(false)
-                .setPositiveButton("Y", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogQuit, int i) {
-                        finish();
-                    }
-                })
-                .setNegativeButton("N", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogQuit, int i) {
-                        dialogQuit.cancel();
-                    }
-                });
-        AlertDialog alertQuit = quit_alert.create();
-        //alertQuit.setTitle("?");
-        alertQuit.show();
+        MyCustomAlertDialog();
     }
 }

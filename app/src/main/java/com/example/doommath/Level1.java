@@ -2,14 +2,20 @@ package com.example.doommath;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Level1 extends AppCompatActivity {
 
-
+    Dialog MyDialog;
+    TextView yes;
+    TextView no;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -260,7 +266,51 @@ public class Level1 extends AppCompatActivity {
             }
         });
 
+        TextView textViewIdea = (TextView)findViewById(R.id.textViewidea);
+        textViewIdea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    MyCustomAlertDialog();
+                } catch (Exception e){
 
+                }
+            }
+        });
+
+
+
+
+
+    }
+
+
+    public void MyCustomAlertDialog(){
+        MyDialog = new Dialog(Level1.this);
+        MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        MyDialog.setContentView(R.layout.customdialog);
+        MyDialog.setTitle("My Custom Dialog");
+
+        yes = (TextView)MyDialog.findViewById(R.id.yes);
+        no = (TextView)MyDialog.findViewById(R.id.no);
+
+        yes.setEnabled(true);
+        no.setEnabled(true);
+
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Hello, I'm Custom Alert Dialog", Toast.LENGTH_LONG).show();
+            }
+        });
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyDialog.cancel();
+            }
+        });
+
+        MyDialog.show();
     }
 
     @Override
