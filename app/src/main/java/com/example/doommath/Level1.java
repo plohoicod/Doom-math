@@ -278,7 +278,19 @@ public class Level1 extends AppCompatActivity {
             }
         });
 
+        Button buttonBack = (Button) findViewById(R.id.button_back2);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Intent intent = new Intent(Level1.this, GameLevels.class);
+                    startActivity(intent);
+                    finish();
+                } catch (Exception e){
 
+                }
+            }
+        });
 
 
 

@@ -29,6 +29,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/doom"
+                    android:gravity="center|left"
                     android:text="@string/back"
                     android:textAllCaps="false"
                     android:textColor="@color/white" />

@@ -5,5 +5,6 @@
     <string name="app_options">Options</string>
     <string name="app_read_this">Read This!</string>
     <string name="app_quit">Quit Game</string>
-    <string name="back">Back</string>
+    <string name="back"><![CDATA[<]]> Back</string>
+    <string name="arrow"><![CDATA[<]]></string>
 </resources>
